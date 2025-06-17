@@ -1,6 +1,6 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "autoname": "autoincrement",
  "creation": "2025-06-15 19:31:34.138068",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -8,11 +8,17 @@
   "section_break_mj9o",
   "amended_from",
   "link_customer",
+  "link_ypdc",
+  "amount",
+  "annual_increase",
+  "column_break_fkhn",
   "link_project",
   "contract_date",
   "effective_date",
   "end_date",
-  "contract_periods_in_months"
+  "contract_periods_in_months",
+  "section_break_lgmr",
+  "table_kqto"
  ],
  "fields": [
   {
@@ -46,10 +52,12 @@
    "label": "Effective Date"
   },
   {
+   "fetch_from": "link_ypdc.project",
    "fieldname": "link_project",
    "fieldtype": "Link",
    "label": "Project",
-   "options": "Project"
+   "options": "Project",
+   "read_only": 1
   },
   {
    "fieldname": "contract_periods_in_months",
@@ -60,16 +68,48 @@
    "fieldname": "end_date",
    "fieldtype": "Date",
    "label": "End Date"
+  },
+  {
+   "fieldname": "link_ypdc",
+   "fieldtype": "Link",
+   "label": "Rental Unit",
+   "options": "Rental Units"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "label": "Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_fkhn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "annual_increase",
+   "fieldtype": "Percent",
+   "label": "Annual Increase %",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "section_break_lgmr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_kqto",
+   "fieldtype": "Table",
+   "options": "Rental Contract list"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-15 19:52:48.858070",
+ "modified": "2025-06-17 21:17:07.225898",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Contract",
+ "naming_rule": "Autoincrement",
  "owner": "Administrator",
  "permissions": [
   {

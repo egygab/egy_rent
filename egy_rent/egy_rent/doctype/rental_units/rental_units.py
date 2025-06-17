@@ -1,11 +1,9 @@
 # Copyright (c) 2025, . and contributors
 # For license information, please see license.txt
 
-import frappe
+# import frappe
 from frappe.model.document import Document
 
 
-class RentalContract(Document):
-	@frappe.whitelist()
-	def calc_contract_list():
-		frappe.msgprint(('Success'))
+class RentalUnits(Document):
+	pass
