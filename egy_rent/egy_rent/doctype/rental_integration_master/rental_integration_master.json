@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-06-21 20:48:17.516365",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "store_name",
+  "integration_type",
+  "branch_id",
+  "token",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code"
+  },
+  {
+   "fieldname": "store_name",
+   "fieldtype": "Data",
+   "label": "Store Name"
+  },
+  {
+   "fieldname": "integration_type",
+   "fieldtype": "Select",
+   "label": "Integration Type",
+   "options": "foodics\n-"
+  },
+  {
+   "fieldname": "branch_id",
+   "fieldtype": "Data",
+   "label": "Branch ID"
+  },
+  {
+   "fieldname": "token",
+   "fieldtype": "Text",
+   "label": "Token"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Integration Master",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-22 23:26:19.942186",
+ "modified_by": "Administrator",
+ "module": "Egy Rent",
+ "name": "Rental Integration Master",
+ "naming_rule": "Autoincrement",
+ "owner": "m@test.local",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "store_name"
+}
