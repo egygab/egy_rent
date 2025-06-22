@@ -148,6 +148,12 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
+scheduler_events = {
+	"daily": [
+		"egy_rent.tasks.pull_integration_invoices"
+	],
+}
+
 # scheduler_events = {
 # 	"all": [
 # 		"egy_rent.tasks.all"

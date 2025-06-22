@@ -11,14 +11,16 @@
   "link_ypdc",
   "amount",
   "annual_increase",
+  "allow_revenue_share",
   "column_break_fkhn",
   "link_project",
   "contract_date",
   "effective_date",
   "end_date",
   "contract_periods_in_months",
+  "item_tax_template",
   "section_break_lgmr",
-  "table_kqto"
+  "table_rental_list"
  ],
  "fields": [
   {
@@ -96,17 +98,29 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "table_kqto",
+   "fieldname": "table_rental_list",
    "fieldtype": "Table",
    "options": "Rental Contract list"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_revenue_share",
+   "fieldtype": "Check",
+   "label": "Allow revenue share"
+  },
+  {
+   "fieldname": "item_tax_template",
+   "fieldtype": "Link",
+   "label": "Item Tax Template",
+   "options": "Item Tax Template"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-17 21:17:07.225898",
- "modified_by": "Administrator",
+ "modified": "2025-06-22 10:49:44.410079",
+ "modified_by": "m@test.local",
  "module": "Egy Rent",
  "name": "Rental Contract",
  "naming_rule": "Autoincrement",

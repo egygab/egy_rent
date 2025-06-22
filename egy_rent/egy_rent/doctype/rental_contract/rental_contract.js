@@ -3,19 +3,35 @@
 
 frappe.ui.form.on("Rental Contract", {
 	refresh(frm) {
-       frm.add_custom_button(__('Get User Email Address'), function() {
-           frappe.call({
-                    method: 'egy_rent.egy_rent.egy_rent.doctype.rental_contract.rental_contract.calc_contract_list',
-                    // Use args property to pass data to the python method
-                    // Python method: def print_msg(name, age):
-                    args: {name: 'some_name', age: 30},
-                    callback: function(ret) {
-                        // If you expect something to return form the call use the code bellow or replace it with your own code
-                        if (!ret || ret.message == null) return;
-                        let data = ret.message;
+       frm.add_custom_button(__('Update List'), function() {
+        frappe.call({
+            method: 'egy_rent.egy_rent.api.calc_contract_items',
+            args: {from_date: frm.doc.effective_date, to_date: frm.doc.end_date,
+                months:frm.doc.contract_periods_in_months, 
+                amount: frm.doc.amount, year_rate: frm.doc.annual_increase,
+            },
+            }).done((r) => { 
+                    frm.doc.table_rental_list = [] 
+                    $.each(r.message, function(_i, e){
+                        let entry = frm.add_child("table_rental_list");
+                        entry.collection_date = e.collection_date; 
+                        entry.amount=e.amount;
+                        })
+                    refresh_field("table_rental_list") 
+                })
+
+        //    frappe.call({
+        //             method: 'egy_rent.egy_rent.doctype.rental_contract.rental_contract.calc_contract_list',
+        //             // Use args property to pass data to the python method
+        //             // Python method: def print_msg(name, age):
+        //             args: {doc_name: frm.doc.name, age: 30},
+        //             callback: function(ret) {
+        //                 // If you expect something to return form the call use the code bellow or replace it with your own code
+        //                 if (!ret || ret.message == null) return;
+        //                 let data = ret.message;
                         
-                    }
-                });
+        //             }
+        //         });
        }, __("Utilities"));
 	},
 });
