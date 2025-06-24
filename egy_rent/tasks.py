@@ -54,7 +54,8 @@ def save_foodics_invoices(response,store_name,data={},headers={}):
         except:
             pass
     frappe.db.commit()
-##bench --site site1.local execute egy_rent.egy_rent.tasks.pull_integration_invoices
+##bench --site site1.local execute egy_rent.tasks.pull_integration_invoices
+##bench --site system.egygab.com execute egy_rent.tasks.pull_integration_invoices
 @frappe.whitelist()
 def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
     stores = frappe.db.get_all('Rental Integration Master')
