@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"i3I9ldHN_n\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Rent</span>\",\"col\":12}},{\"id\":\"p3JNbrseIs\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"i3I9ldHN_n\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Rent</span>\",\"col\":12}},{\"id\":\"D8YxlY7O63\",\"type\":\"card\",\"data\":{\"card_name\":\"Master Data\",\"col\":4}},{\"id\":\"p3JNbrseIs\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
  "creation": "2025-06-22 11:58:07.179112",
  "custom_blocks": [],
  "docstatus": 0,
@@ -26,13 +26,52 @@
    "is_query_report": 1,
    "label": "Rental Integration Sales",
    "link_count": 0,
-   "link_to": "Rental Integration Sales",
+   "link_to": "Rental Integration Sales Report",
    "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Master Data",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rental Integration Sales",
+   "link_count": 0,
+   "link_to": "Rental Integration Sales",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rental Integration Master",
+   "link_count": 0,
+   "link_to": "Rental Integration Master",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rental Integration Import Tool",
+   "link_count": 0,
+   "link_to": "Rental Integration Import Tool",
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2025-06-23 12:07:36.116407",
+ "modified": "2025-06-24 15:41:52.839966",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rent",

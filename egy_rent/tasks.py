@@ -58,6 +58,7 @@ def save_foodics_invoices(response,store_name,data={},headers={}):
 ##bench --site system.egygab.com execute egy_rent.tasks.pull_integration_invoices
 @frappe.whitelist()
 def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
+    
     stores = frappe.db.get_all('Rental Integration Master')
     for store in stores:
         store_ = frappe.get_doc('Rental Integration Master', store.name)
@@ -85,7 +86,7 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
                     if _next_url :
                         _next_url = response.json().get('links').get('next') + "&filter[business_date]="+ str(business_date) + "&filter[branch_id]=" + str(store_.branch_id)
 
-
+    print ("=============== >> " + str(business_date))
             #print(response.json())
 
 

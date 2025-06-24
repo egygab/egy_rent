@@ -5,7 +5,7 @@ frappe.ui.form.on("Rental Contract", {
 	refresh(frm) {
        frm.add_custom_button(__('Update List'), function() {
         frappe.call({
-            method: 'egy_rent.egy_rent.api.calc_contract_items',
+            method: 'egy_rent.api.calc_contract_items',
             args: {from_date: frm.doc.effective_date, to_date: frm.doc.end_date,
                 months:frm.doc.contract_periods_in_months, 
                 amount: frm.doc.amount, year_rate: frm.doc.annual_increase,
