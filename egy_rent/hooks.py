@@ -149,9 +149,12 @@ app_license = "mit"
 # ---------------
 
 scheduler_events = {
-	"daily": [
-		"egy_rent.tasks.pull_integration_invoices"
-	],
+           "cron": {
+                   "0 16 * * *": [
+                        "egy_rent.tasks.pull_integration_invoices",
+                ]
+        },   
+
 }
 
 # scheduler_events = {
