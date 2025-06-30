@@ -7,10 +7,10 @@ from dateutil.relativedelta import relativedelta
 def calc_contract_items(from_date,to_date,no_months,amount,year_rate):
     contract_items=[]
     local_list={}
-    ### loop to add data
-    current_date = datetime.strptime(from_date, "%Y-%m-%d")
-    from_date = datetime.strptime(from_date, "%Y-%m-%d")
-    to_date = datetime.strptime(to_date, "%Y-%m-%d")
+    ### loop to add data frappe.utils.getdate
+    current_date = frappe.utils.getdate(from_date)
+    from_date = frappe.utils.getdate(from_date) #datetime.strptime(from_date, "%Y-%m-%d")
+    to_date = frappe.utils.getdate(to_date) #datetime.strptime(to_date, "%Y-%m-%d")
     no_months = int(no_months)
     year_rate = float(year_rate)
     amount = float(amount)
