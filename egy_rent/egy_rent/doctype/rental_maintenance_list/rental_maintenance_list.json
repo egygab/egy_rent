@@ -1,38 +1,23 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-06-17 21:01:15.094959",
+ "creation": "2025-06-29 08:54:29.266972",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "id",
   "collection_date",
   "description",
   "amount",
-  "cont_itm_status"
+  "collected_amount"
  ],
  "fields": [
-  {
-   "fieldname": "id",
-   "fieldtype": "Int",
-   "hidden": 1,
-   "label": "ID",
-   "read_only": 1
-  },
   {
    "columns": 2,
    "fieldname": "collection_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Collection Date"
-  },
-  {
-   "columns": 2,
-   "fieldname": "amount",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Amount"
   },
   {
    "columns": 4,
@@ -42,21 +27,28 @@
    "label": "Description"
   },
   {
-   "default": "0",
-   "fieldname": "cont_itm_status",
-   "fieldtype": "Int",
-   "hidden": 1,
-   "label": "cont_itm_status"
+   "columns": 2,
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Amount"
+  },
+  {
+   "columns": 2,
+   "fieldname": "collected_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Collected Amount"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-30 12:40:07.496898",
+ "modified": "2025-06-29 09:12:38.442031",
  "modified_by": "Administrator",
  "module": "Egy Rent",
- "name": "Rental Contract list",
+ "name": "Rental Maintenance list",
  "owner": "Administrator",
  "permissions": [],
  "row_format": "Dynamic",

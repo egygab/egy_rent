@@ -1,62 +1,55 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-06-17 21:01:15.094959",
+ "creation": "2025-06-30 10:56:09.361594",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "id",
-  "collection_date",
+  "type",
+  "due_date",
   "description",
-  "amount",
-  "cont_itm_status"
+  "amount"
  ],
  "fields": [
   {
-   "fieldname": "id",
-   "fieldtype": "Int",
-   "hidden": 1,
-   "label": "ID",
-   "read_only": 1
+   "columns": 2,
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Installment\nMaintenance\nSettlement"
   },
   {
    "columns": 2,
-   "fieldname": "collection_date",
+   "fieldname": "due_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Collection Date"
+   "label": "Due Date"
   },
   {
-   "columns": 2,
-   "fieldname": "amount",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Amount"
-  },
-  {
-   "columns": 4,
+   "columns": 3,
    "fieldname": "description",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Description"
   },
   {
-   "default": "0",
-   "fieldname": "cont_itm_status",
-   "fieldtype": "Int",
-   "hidden": 1,
-   "label": "cont_itm_status"
+   "columns": 2,
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "in_standard_filter": 1,
+   "label": "Amount"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-30 12:40:07.496898",
+ "modified": "2025-06-30 11:07:13.377854",
  "modified_by": "Administrator",
  "module": "Egy Rent",
- "name": "Rental Contract list",
+ "name": "Rental Batch Items",
  "owner": "Administrator",
  "permissions": [],
  "row_format": "Dynamic",

@@ -5,10 +5,11 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "installments_tab",
   "section_break_mj9o",
   "amended_from",
   "link_customer",
-  "link_ypdc",
+  "rental_unit",
   "amount",
   "annual_increase",
   "allow_revenue_share",
@@ -20,7 +21,15 @@
   "contract_periods_in_months",
   "item_tax_template",
   "section_break_lgmr",
-  "table_rental_list"
+  "table_rental_list",
+  "maintenance_tab",
+  "maintenance_amount",
+  "maintenance_effective_date",
+  "maintenance_end_date",
+  "maintenance_periods_in_months",
+  "maintenance_annual_increase",
+  "item_tax_template_for_maintenance",
+  "rental_maintenance_list"
  ],
  "fields": [
   {
@@ -72,12 +81,6 @@
    "label": "End Date"
   },
   {
-   "fieldname": "link_ypdc",
-   "fieldtype": "Link",
-   "label": "Rental Unit",
-   "options": "Rental Units"
-  },
-  {
    "fieldname": "amount",
    "fieldtype": "Float",
    "label": "Amount",
@@ -113,14 +116,67 @@
    "fieldtype": "Link",
    "label": "Item Tax Template",
    "options": "Item Tax Template"
+  },
+  {
+   "fieldname": "installments_tab",
+   "fieldtype": "Tab Break",
+   "label": "Installments"
+  },
+  {
+   "fieldname": "maintenance_tab",
+   "fieldtype": "Tab Break",
+   "label": "Maintenance"
+  },
+  {
+   "fieldname": "maintenance_amount",
+   "fieldtype": "Float",
+   "label": "Maintenance Amount"
+  },
+  {
+   "fieldname": "rental_unit",
+   "fieldtype": "Link",
+   "label": "Rental Unit",
+   "options": "Rental Units"
+  },
+  {
+   "fieldname": "maintenance_effective_date",
+   "fieldtype": "Date",
+   "label": "Maintenance Effective Date"
+  },
+  {
+   "fieldname": "maintenance_end_date",
+   "fieldtype": "Date",
+   "label": "Maintenance End Date"
+  },
+  {
+   "fieldname": "maintenance_periods_in_months",
+   "fieldtype": "Int",
+   "label": "Maintenance periods (in months)"
+  },
+  {
+   "fieldname": "item_tax_template_for_maintenance",
+   "fieldtype": "Link",
+   "label": "Item Tax Template for Maintenance",
+   "options": "Item Tax Template"
+  },
+  {
+   "fieldname": "maintenance_annual_increase",
+   "fieldtype": "Percent",
+   "label": "Maintenance Annual Increase %"
+  },
+  {
+   "fieldname": "rental_maintenance_list",
+   "fieldtype": "Table",
+   "label": "Rental Maintenance list",
+   "options": "Rental Maintenance list"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-22 10:49:44.410079",
- "modified_by": "m@test.local",
+ "modified": "2025-06-29 09:02:12.110742",
+ "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Contract",
  "naming_rule": "Autoincrement",

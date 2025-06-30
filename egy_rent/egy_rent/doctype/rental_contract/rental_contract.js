@@ -7,19 +7,37 @@ frappe.ui.form.on("Rental Contract", {
         frappe.call({
             method: 'egy_rent.api.calc_contract_items',
             args: {from_date: frm.doc.effective_date, to_date: frm.doc.end_date,
-                months:frm.doc.contract_periods_in_months, 
+                no_months:frm.doc.contract_periods_in_months, 
                 amount: frm.doc.amount, year_rate: frm.doc.annual_increase,
             },
             }).done((r) => { 
                     frm.doc.table_rental_list = [] 
                     $.each(r.message, function(_i, e){
                         let entry = frm.add_child("table_rental_list");
-                        entry.collection_date = e.collection_date; 
+                        entry.collection_date = e.collection_date;
+                        entry.description = "Installment for unit " + frm.doc.rental_unit + " On " + moment(e.collection_date).format("DD-MM-YYYY") ;
                         entry.amount=e.amount;
                         })
                     refresh_field("table_rental_list") 
                 })
 
+        frappe.call({
+            method: 'egy_rent.api.calc_contract_items',
+            args: {from_date: frm.doc.maintenance_effective_date, to_date: frm.doc.maintenance_end_date,
+                no_months:frm.doc.maintenance_periods_in_months, 
+                amount: frm.doc.maintenance_amount, year_rate: frm.doc.maintenance_annual_increase,
+            },
+            }).done((r) => { 
+                    frm.doc.rental_maintenance_list = [] 
+                    $.each(r.message, function(_i, e){
+                        let entry = frm.add_child("rental_maintenance_list");
+                        entry.collection_date = e.collection_date;
+                        entry.description = "Maintenance for unit " + frm.doc.rental_unit + " On " + moment(e.collection_date).format("DD-MM-YYYY") ;
+                        entry.amount=e.amount;
+                        })
+                    refresh_field("rental_maintenance_list") 
+                })
+                
         //    frappe.call({
         //             method: 'egy_rent.egy_rent.doctype.rental_contract.rental_contract.calc_contract_list',
         //             // Use args property to pass data to the python method
