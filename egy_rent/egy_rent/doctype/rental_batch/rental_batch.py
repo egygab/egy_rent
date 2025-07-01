@@ -7,7 +7,7 @@ import datetime
 
 class RentalBatch(Document):
 	def after_insert(self):
-		local_time_sheets = frappe.db.sql("""
+		local_contract_item = frappe.db.sql(""" select collection_date
 									
-									""")
+									""",(self.rental_unit,self.from_date,self.to_date))
 		

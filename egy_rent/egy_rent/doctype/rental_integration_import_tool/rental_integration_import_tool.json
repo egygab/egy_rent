@@ -24,7 +24,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-06-24 13:35:06.159699",
+ "modified": "2025-07-01 14:56:05.139722",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Integration Import Tool",
@@ -37,6 +37,24 @@
    "print": 1,
    "read": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Rental Integration User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Rental Integration Manager",
    "share": 1,
    "write": 1
   }

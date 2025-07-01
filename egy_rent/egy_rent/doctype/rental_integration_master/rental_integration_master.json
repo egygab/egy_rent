@@ -53,7 +53,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-22 23:26:19.942186",
+ "modified": "2025-07-01 14:54:58.945373",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Integration Master",
@@ -69,6 +69,27 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Rental Integration User",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Rental Integration Manager",
    "share": 1,
    "write": 1
   }
