@@ -25,7 +25,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2025-06-24 17:31:44.776779",
+ "modified": "2025-07-01 15:05:44.484965",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Integration Sales Report",
@@ -38,6 +38,9 @@
  "roles": [
   {
    "role": "System Manager"
+  },
+  {
+   "role": "Rental Integration User"
   }
  ],
  "timeout": 0

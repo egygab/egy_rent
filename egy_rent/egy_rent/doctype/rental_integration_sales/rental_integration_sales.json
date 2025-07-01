@@ -68,7 +68,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-01 14:57:05.973289",
+ "modified": "2025-07-01 15:02:39.476966",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Integration Sales",
@@ -94,8 +94,7 @@
    "read": 1,
    "report": 1,
    "role": "Rental Integration User",
-   "share": 1,
-   "write": 1
+   "share": 1
   },
   {
    "delete": 1,
