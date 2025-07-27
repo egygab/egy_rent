@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:RCR-{YY}-{MM}-{#####}",
+ "creation": "2025-07-06 08:44:55.779435",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_c5em",
+  "amended_from",
+  "request_title",
+  "rental_contract",
+  "link_customer",
+  "column_break_lgnw",
+  "request_date",
+  "from_date",
+  "to_date",
+  "rental_batch",
+  "section_break_lqhf",
+  "collection_request_items"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_c5em",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Collection Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "request_title",
+   "fieldtype": "Data",
+   "label": "Request Title"
+  },
+  {
+   "fieldname": "rental_contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Rental Contract",
+   "options": "Rental Contract",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_lgnw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "now",
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Request Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_lqhf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "rental_contract.link_customer",
+   "fieldname": "link_customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "collection_request_items",
+   "fieldtype": "Table",
+   "label": "Collection Request Items",
+   "options": "Rental Collection Request Items"
+  },
+  {
+   "fieldname": "rental_batch",
+   "fieldtype": "Link",
+   "label": "Rental Batch",
+   "options": "Rental Batch"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-07-20 13:10:05.998855",
+ "modified_by": "Administrator",
+ "module": "Egy Rent",
+ "name": "Rental Collection Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

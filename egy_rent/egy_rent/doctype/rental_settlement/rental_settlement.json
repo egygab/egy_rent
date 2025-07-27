@@ -1,26 +1,21 @@
 {
  "actions": [],
- "autoname": "autoincrement",
+ "autoname": "format:STL{YY}-{MM}-{#####}",
  "creation": "2025-06-29 10:28:42.303139",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "rental_units",
+  "settlement_date",
+  "rental_contract",
   "amount",
   "description",
-  "account",
-  "item_tax_template",
+  "column_break_pemc",
+  "rental_units",
+  "service_item",
+  "sales_taxes_template",
   "amended_from"
  ],
  "fields": [
-  {
-   "fieldname": "rental_units",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Rental Units",
-   "options": "Rental Units",
-   "reqd": 1
-  },
   {
    "fieldname": "amount",
    "fieldtype": "Float",
@@ -44,27 +39,53 @@
    "search_index": 1
   },
   {
-   "fieldname": "account",
+   "fieldname": "rental_contract",
    "fieldtype": "Link",
-   "label": "Account",
-   "options": "Account"
+   "label": "Rental Contract",
+   "options": "Rental Contract",
+   "reqd": 1
   },
   {
-   "fieldname": "item_tax_template",
+   "fieldname": "rental_units",
+   "fieldtype": "Table MultiSelect",
+   "hidden": 1,
+   "label": " Rental Units",
+   "options": "Rental Unit Contract Table",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pemc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "settlement_date",
+   "fieldtype": "Date",
+   "label": "Settlement Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_item",
    "fieldtype": "Link",
-   "label": "Item Tax Template",
-   "options": "Item Tax Template"
+   "label": "Service Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_taxes_template",
+   "fieldtype": "Link",
+   "label": "Sales Taxes Template",
+   "options": "Sales Taxes and Charges Template"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-30 09:20:56.069685",
+ "modified": "2025-07-20 13:07:59.162796",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Settlement",
- "naming_rule": "Autoincrement",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

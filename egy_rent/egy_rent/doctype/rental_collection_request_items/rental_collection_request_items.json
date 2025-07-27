@@ -1,69 +1,72 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-06-30 10:56:09.361594",
+ "creation": "2025-07-06 08:45:26.179176",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "type",
-  "rental_contract",
   "due_date",
   "amount",
-  "description"
+  "description",
+  "sales_invoice",
+  "type_link_name"
  ],
  "fields": [
   {
-   "columns": 1,
+   "columns": 2,
    "fieldname": "type",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type",
-   "options": "Installment\nMaintenance\nSettlement",
-   "read_only": 1
+   "options": "Installment\nMaintenance\nSettlement"
   },
   {
    "columns": 2,
    "fieldname": "due_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Due Date",
-   "read_only": 1
-  },
-  {
-   "columns": 2,
-   "fieldname": "description",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Description"
+   "label": "Due Date"
   },
   {
    "columns": 2,
    "fieldname": "amount",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Amount",
+   "label": "Amount"
+  },
+  {
+   "columns": 3,
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "allow_on_submit": 1,
+   "columns": 1,
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice",
    "read_only": 1
   },
   {
-   "columns": 2,
-   "fieldname": "rental_contract",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Rental Contract",
-   "options": "Rental Contract",
-   "read_only": 1
+   "fieldname": "type_link_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Type Link Name"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-07-03 14:36:24.723040",
+ "modified": "2025-07-15 14:00:33.251311",
  "modified_by": "Administrator",
  "module": "Egy Rent",
- "name": "Rental Batch Items",
+ "name": "Rental Collection Request Items",
  "owner": "Administrator",
  "permissions": [],
  "row_format": "Dynamic",

@@ -15,7 +15,7 @@ frappe.ui.form.on("Rental Contract", {
                     $.each(r.message, function(_i, e){
                         let entry = frm.add_child("table_rental_list");
                         entry.collection_date = e.collection_date;
-                        entry.description = "Installment for unit " + frm.doc.rental_unit + " On " + moment(e.collection_date).format("DD-MM-YYYY") ;
+                        entry.description = "Installment for unit " + frm.doc.contract_name + " On " + moment(e.collection_date).format("DD-MM-YYYY") ;
                         entry.amount=e.amount;
                         })
                     refresh_field("table_rental_list") 
@@ -32,7 +32,7 @@ frappe.ui.form.on("Rental Contract", {
                     $.each(r.message, function(_i, e){
                         let entry = frm.add_child("rental_maintenance_list");
                         entry.collection_date = e.collection_date;
-                        entry.description = "Maintenance for unit " + frm.doc.rental_unit + " On " + moment(e.collection_date).format("DD-MM-YYYY") ;
+                        entry.description = "Maintenance for unit " + frm.doc.contract_name + " On " + moment(e.collection_date).format("DD-MM-YYYY") ;
                         entry.amount=e.amount;
                         })
                     refresh_field("rental_maintenance_list") 

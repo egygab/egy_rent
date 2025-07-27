@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "autoincrement",
+ "autoname": "format:CNT-{YY}-{#####}",
  "creation": "2025-06-15 19:31:34.138068",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -8,6 +8,7 @@
   "installments_tab",
   "section_break_mj9o",
   "amended_from",
+  "contract_name",
   "link_customer",
   "rental_unit",
   "amount",
@@ -19,7 +20,8 @@
   "effective_date",
   "end_date",
   "contract_periods_in_months",
-  "item_tax_template",
+  "contract_sales_taxes_template",
+  "contract_service",
   "section_break_lgmr",
   "table_rental_list",
   "maintenance_tab",
@@ -28,7 +30,10 @@
   "maintenance_end_date",
   "maintenance_periods_in_months",
   "maintenance_annual_increase",
-  "item_tax_template_for_maintenance",
+  "column_break_zzzy",
+  "maintenance_sales_taxes_template",
+  "maintenance_service",
+  "section_break_hiwf",
   "rental_maintenance_list"
  ],
  "fields": [
@@ -50,17 +55,20 @@
    "fieldname": "link_customer",
    "fieldtype": "Link",
    "label": "Customer",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "contract_date",
    "fieldtype": "Date",
-   "label": "Contract Date"
+   "label": "Contract Date",
+   "reqd": 1
   },
   {
    "fieldname": "effective_date",
    "fieldtype": "Date",
-   "label": "Effective Date"
+   "label": "Effective Date",
+   "reqd": 1
   },
   {
    "fetch_from": "link_ypdc.project",
@@ -73,18 +81,21 @@
   {
    "fieldname": "contract_periods_in_months",
    "fieldtype": "Int",
-   "label": "Contract periods (in months)"
+   "label": "Contract periods (in months)",
+   "reqd": 1
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "label": "End Date"
+   "label": "End Date",
+   "reqd": 1
   },
   {
    "fieldname": "amount",
    "fieldtype": "Float",
    "label": "Amount",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "column_break_fkhn",
@@ -112,12 +123,6 @@
    "label": "Allow revenue share"
   },
   {
-   "fieldname": "item_tax_template",
-   "fieldtype": "Link",
-   "label": "Item Tax Template",
-   "options": "Item Tax Template"
-  },
-  {
    "fieldname": "installments_tab",
    "fieldtype": "Tab Break",
    "label": "Installments"
@@ -134,9 +139,12 @@
   },
   {
    "fieldname": "rental_unit",
-   "fieldtype": "Link",
-   "label": "Rental Unit",
-   "options": "Rental Units"
+   "fieldtype": "Table MultiSelect",
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Rental Unit (s)",
+   "options": "Rental Unit Contract Table",
+   "reqd": 1
   },
   {
    "fieldname": "maintenance_effective_date",
@@ -154,12 +162,6 @@
    "label": "Maintenance periods (in months)"
   },
   {
-   "fieldname": "item_tax_template_for_maintenance",
-   "fieldtype": "Link",
-   "label": "Item Tax Template for Maintenance",
-   "options": "Item Tax Template"
-  },
-  {
    "fieldname": "maintenance_annual_increase",
    "fieldtype": "Percent",
    "label": "Maintenance Annual Increase %"
@@ -169,17 +171,60 @@
    "fieldtype": "Table",
    "label": "Rental Maintenance list",
    "options": "Rental Maintenance list"
+  },
+  {
+   "fieldname": "contract_name",
+   "fieldtype": "Data",
+   "label": "Contract Name"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "contract_service",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contract Service",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "contract_sales_taxes_template",
+   "fieldtype": "Link",
+   "label": "Contract Sales Taxes Template ",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "maintenance_sales_taxes_template",
+   "fieldtype": "Link",
+   "label": "Maintenance Sales Taxes Template",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "fieldname": "column_break_zzzy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "maintenance_service",
+   "fieldtype": "Link",
+   "label": "Maintenance Service",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_hiwf",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-01 12:12:50.530922",
+ "modified": "2025-07-20 13:47:48.974249",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Contract",
- "naming_rule": "Autoincrement",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -197,7 +242,10 @@
   }
  ],
  "row_format": "Dynamic",
+ "search_fields": "contract_name,link_customer",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "contract_name"
 }

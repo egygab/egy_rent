@@ -1,17 +1,17 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "autoname": "format:BTH-{YY}-{#####}",
  "creation": "2025-06-30 10:54:48.135730",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_atwv",
   "code",
-  "from_date",
-  "amended_from",
-  "rental_unit",
-  "column_break_vjhg",
   "batch_name",
+  "amended_from",
+  "column_break_vjhg",
+  "batch_date",
+  "from_date",
   "to_date",
   "section_break_ckjo",
   "batch_items"
@@ -74,21 +74,26 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "rental_unit",
-   "fieldtype": "Link",
-   "label": "Rental Unit",
-   "options": "Rental Units",
+   "fieldname": "batch_date",
+   "fieldtype": "Date",
+   "label": "Batch Date",
    "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-06-30 12:36:34.493443",
+ "links": [
+  {
+   "link_doctype": "Rental Collection Request",
+   "link_fieldname": "rental_batch"
+  }
+ ],
+ "modified": "2025-07-20 13:09:16.908544",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Batch",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

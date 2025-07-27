@@ -35,7 +35,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Master Data",
-   "link_count": 7,
+   "link_count": 8,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -56,6 +56,16 @@
    "label": "Rental Batch",
    "link_count": 0,
    "link_to": "Rental Batch",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rental Collection Request",
+   "link_count": 0,
+   "link_to": "Rental Collection Request",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -111,7 +121,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-06-30 12:19:54.967002",
+ "modified": "2025-07-06 11:15:48.222573",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rent",
