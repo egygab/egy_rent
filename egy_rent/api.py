@@ -7,28 +7,29 @@ from dateutil.relativedelta import relativedelta
 def calc_contract_items(from_date,to_date,no_months,amount,year_rate):
     contract_items=[]
     local_list={}
-    ### loop to add data frappe.utils.getdate
-    current_date = frappe.utils.getdate(from_date)
-    from_date = frappe.utils.getdate(from_date) #datetime.strptime(from_date, "%Y-%m-%d")
-    to_date = frappe.utils.getdate(to_date) #datetime.strptime(to_date, "%Y-%m-%d")
-    no_months = int(no_months)
-    year_rate = float(year_rate)
-    amount = float(amount)
-    #print(year_rate)    
-    while current_date <= to_date:
-        y_diff = relativedelta(current_date,from_date)
-        years_between = int(y_diff.years)
-        #print (str(years_between),current_date,to_date)
-        #cal_amount = amount + (amount * years_between * year_rate /100)
-        cal_amount = float(amount * ((1 + year_rate/100) ** (years_between )))
-        local_list["collection_date"]=current_date
-        local_list["amount"]=cal_amount
-        current_date += relativedelta(months=no_months)
+    if float(amount)>0 :
+      ### loop to add data frappe.utils.getdate
+      current_date = frappe.utils.getdate(from_date)
+      from_date = frappe.utils.getdate(from_date) #datetime.strptime(from_date, "%Y-%m-%d")
+      to_date = frappe.utils.getdate(to_date) #datetime.strptime(to_date, "%Y-%m-%d")
+      no_months = int(no_months)
+      year_rate = float(year_rate)
+      amount = float(amount)
+      #print(year_rate)    
+      while current_date <= to_date:
+          y_diff = relativedelta(current_date,from_date)
+          years_between = int(y_diff.years)
+          #print (str(years_between),current_date,to_date)
+          #cal_amount = amount + (amount * years_between * year_rate /100)
+          cal_amount = float(amount * ((1 + year_rate/100) ** (years_between )))
+          local_list["collection_date"]=current_date
+          local_list["amount"]=cal_amount
+          current_date += relativedelta(months=no_months)
 
-        contract_items.append(local_list)
-        local_list={}
-    #print(contract_items)
-    return contract_items
+          contract_items.append(local_list)
+          local_list={}
+      #print(contract_items)
+      return contract_items
 
 @frappe.whitelist()
 def get_contract_list(from_date,to_date,contract=None):
@@ -37,14 +38,14 @@ def get_contract_list(from_date,to_date,contract=None):
         if contract :
             local_contract_item = frappe.db.sql(""" select parent,collection_date,amount,description,
 									  name from `tabRental Contract list`
-									where docstatus=1 and parent=%s and
+									where docstatus=1 and name not in ( select type_link_name from `tabRental Collection Request Items` ) and parent=%s and
 									  collection_date >= %s and collection_date <= %s
 									""",(contract,from_date,to_date))
              
         else:
             local_contract_item = frappe.db.sql(""" select parent,collection_date,amount,description,
 									  name from `tabRental Contract list`
-									where docstatus=1 and
+									where docstatus=1 and name not in ( select type_link_name from `tabRental Collection Request Items` ) and
 									  collection_date >= %s and collection_date <= %s
 									""",(from_date,to_date))
              
@@ -69,13 +70,13 @@ def get_maintenance_list(from_date,to_date,contract=None):
         if contract :        
             local_contract_item = frappe.db.sql(""" select parent,collection_date,amount,description,
 									  name from `tabRental Maintenance list`
-									where docstatus=1 and parent=%s and
+									where docstatus=1 and name not in ( select type_link_name from `tabRental Collection Request Items` ) and parent=%s and
 									  collection_date >= %s and collection_date <= %s
 									""",(contract,from_date,to_date))
         else:
             local_contract_item = frappe.db.sql(""" select parent,collection_date,amount,description,
 									  name from `tabRental Maintenance list`
-									where docstatus=1 and
+									where docstatus=1 and name not in ( select type_link_name from `tabRental Collection Request Items` ) and
 									  collection_date >= %s and collection_date <= %s
 									""",(from_date,to_date))
         for lcontitm in local_contract_item:
@@ -99,13 +100,13 @@ def get_settlement_list(from_date,to_date,contract=None):
         if contract :        
             local_item = frappe.db.sql(""" select rental_contract,settlement_date,amount,description,
 									  name from `tabRental Settlement`
-									where docstatus=1 and rental_contract=%s and 
+									where docstatus=1 and name not in ( select type_link_name from `tabRental Collection Request Items` ) and rental_contract=%s and 
 									  settlement_date >= %s and settlement_date <= %s
 									""",(contract,from_date,to_date))
         else:
             local_item = frappe.db.sql(""" select rental_contract,settlement_date,amount,description,
 									  name from `tabRental Settlement`
-									where docstatus=1 and
+									where docstatus=1 and name not in ( select type_link_name from `tabRental Collection Request Items` ) and
 									  settlement_date >= %s and settlement_date <= %s
 									""",(from_date,to_date))
         for lcontitm in local_item:

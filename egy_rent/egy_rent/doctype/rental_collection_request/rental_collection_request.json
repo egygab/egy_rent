@@ -68,14 +68,16 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "From Date",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "to_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "To Date",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fetch_from": "rental_contract.link_customer",
@@ -101,7 +103,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-20 13:10:05.998855",
+ "modified": "2025-07-31 12:15:33.371438",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Collection Request",

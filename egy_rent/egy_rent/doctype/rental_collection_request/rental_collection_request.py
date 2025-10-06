@@ -5,6 +5,7 @@ import frappe
 from frappe.model.document import Document
 from egy_rent import api
 
+
 class RentalCollectionRequest(Document):
 	def after_insert(self):
 

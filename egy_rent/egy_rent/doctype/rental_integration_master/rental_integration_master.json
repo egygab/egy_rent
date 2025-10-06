@@ -32,12 +32,14 @@
   {
    "fieldname": "branch_id",
    "fieldtype": "Data",
-   "label": "Branch ID"
+   "label": "Branch ID",
+   "permlevel": 1
   },
   {
    "fieldname": "token",
    "fieldtype": "Text",
-   "label": "Token"
+   "label": "Token",
+   "permlevel": 1
   },
   {
    "fieldname": "amended_from",
@@ -53,7 +55,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-01 14:54:58.945373",
+ "modified": "2025-10-06 08:55:38.435768",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Integration Master",
@@ -90,6 +92,19 @@
    "read": 1,
    "report": 1,
    "role": "Rental Integration Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Rental Integration Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   }

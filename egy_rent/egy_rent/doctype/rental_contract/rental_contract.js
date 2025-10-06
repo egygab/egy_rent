@@ -4,6 +4,10 @@
 frappe.ui.form.on("Rental Contract", {
 	refresh(frm) {
        frm.add_custom_button(__('Update List'), function() {
+        if (frm.doc.docstatus === 1) { // docstatus 1 means Submitted
+            // Remove the custom button
+            frappe.msgprint("Document should not submit") ;
+        }  else  {
         frappe.call({
             method: 'egy_rent.api.calc_contract_items',
             args: {from_date: frm.doc.effective_date, to_date: frm.doc.end_date,
@@ -21,6 +25,10 @@ frappe.ui.form.on("Rental Contract", {
                     refresh_field("table_rental_list") 
                 })
 
+        frm.doc.rental_maintenance_list = [] 
+        if (frm.doc.maintenance_effective_date && frm.doc.maintenance_end_date) {
+            //alert(frm.doc.maintenance_effective_date);
+        
         frappe.call({
             method: 'egy_rent.api.calc_contract_items',
             args: {from_date: frm.doc.maintenance_effective_date, to_date: frm.doc.maintenance_end_date,
@@ -37,6 +45,8 @@ frappe.ui.form.on("Rental Contract", {
                         })
                     refresh_field("rental_maintenance_list") 
                 })
+        }
+        refresh_field("rental_maintenance_list") 
                 
         //    frappe.call({
         //             method: 'egy_rent.egy_rent.doctype.rental_contract.rental_contract.calc_contract_list',
@@ -50,6 +60,8 @@ frappe.ui.form.on("Rental Contract", {
                         
         //             }
         //         });
+    }// end if
        }, __("Utilities"));
+
 	},
 });

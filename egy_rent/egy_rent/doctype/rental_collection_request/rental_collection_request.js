@@ -1,6 +1,16 @@
 // Copyright (c) 2025, . and contributors
 // For license information, please see license.txt
 
+frappe.ui.form.on("Rental Collection Request", {
+	refresh(frm) {
+        
+        frm.get_field("collection_request_items").grid.cannot_add_rows = true;
+        refresh_field("collection_request_items");
+
+	},
+});
+
+
 // frappe.ui.form.on("Rental Collection Request", {
 // 	on_submit: function(frm) {
 //     frappe.db.insert({

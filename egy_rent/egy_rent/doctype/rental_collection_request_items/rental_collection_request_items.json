@@ -30,7 +30,7 @@
    "label": "Due Date"
   },
   {
-   "columns": 2,
+   "columns": 1,
    "fieldname": "amount",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -45,9 +45,10 @@
   },
   {
    "allow_on_submit": 1,
-   "columns": 1,
+   "columns": 2,
    "fieldname": "sales_invoice",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Sales Invoice",
    "options": "Sales Invoice",
    "read_only": 1
@@ -56,14 +57,15 @@
    "fieldname": "type_link_name",
    "fieldtype": "Data",
    "hidden": 1,
-   "label": "Type Link Name"
+   "label": "Type Link Name",
+   "unique": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-07-15 14:00:33.251311",
+ "modified": "2025-07-31 13:05:08.688655",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Collection Request Items",
