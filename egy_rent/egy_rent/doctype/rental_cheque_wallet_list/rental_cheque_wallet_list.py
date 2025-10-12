@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class RentalMaintenancelist(Document):
+class RentalChequeWalletList(Document):
 	pass

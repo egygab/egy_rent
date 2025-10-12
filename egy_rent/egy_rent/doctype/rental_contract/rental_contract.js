@@ -63,5 +63,51 @@ frappe.ui.form.on("Rental Contract", {
     }// end if
        }, __("Utilities"));
 
+/////////////////////////////
+    // frm.add_custom_button(__('Create Cheque Wallet'), function() {
+    //     let d = new frappe.ui.Dialog({
+    //         title: __('Confirmation'),
+    //         fields: [
+    //             {
+    //                 fieldname: 'add_maince_list',
+    //                 label: __('Add Maintenance List'),
+    //                 fieldtype: 'Check'
+    //             },
+    //             {
+    //                 fieldname: 'start_check_number',
+    //                 label: __('Start Check Number'),
+    //                 fieldtype: 'Int'
+    //             }                
+    //         ],
+    //         primary_action_label: __('Submit'),
+    //         primary_action: function(values) {
+    //             if (values.add_maince_list) {
+    //                 frappe.msgprint(__('Thank you for agreeing!' ));
+    //                 console.log(frm.doc.name);
+    //                 console.log(values.start_check_number);
+    //                 d.hide();
+    //             } else {
+    //                 frappe.msgprint(__('Please agree to the terms to proceed.'));
+    //             }
+    //         }
+    //     });
+    //     d.show();
+
+
+    //        }, __("Utilities"));
+
+
 	},
 });
+
+
+cur_frm.fields_dict.default_bank.get_query = function(doc) {
+	return {
+		filters: [
+			["Account", "account_type", "=", "Bank"],
+			["Account", "root_type", "=", "Asset"],
+			["Account", "is_group", "=",0],
+			["Account", "company", "=", doc.company]
+		]
+	}
+}

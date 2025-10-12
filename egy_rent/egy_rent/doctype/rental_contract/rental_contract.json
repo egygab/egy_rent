@@ -34,7 +34,10 @@
   "maintenance_sales_taxes_template",
   "maintenance_service",
   "section_break_hiwf",
-  "rental_maintenance_list"
+  "rental_maintenance_list",
+  "settings_tab",
+  "company",
+  "default_bank"
  ],
  "fields": [
   {
@@ -170,7 +173,7 @@
    "fieldname": "rental_maintenance_list",
    "fieldtype": "Table",
    "label": "Rental Maintenance list",
-   "options": "Rental Maintenance list"
+   "options": "Rental Maintenance Item"
   },
   {
    "fieldname": "contract_name",
@@ -214,13 +217,36 @@
   {
    "fieldname": "section_break_hiwf",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "settings_tab",
+   "fieldtype": "Tab Break",
+   "hidden": 1,
+   "label": "Settings"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "default_bank",
+   "fieldtype": "Link",
+   "label": "Default Bank",
+   "options": "Account"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-07-20 13:47:48.974249",
+ "links": [
+  {
+   "link_doctype": "Rental Cheque Wallet",
+   "link_fieldname": "rental_contract"
+  }
+ ],
+ "modified": "2025-10-06 12:13:32.473531",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Contract",

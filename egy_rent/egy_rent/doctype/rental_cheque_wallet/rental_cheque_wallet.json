@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:RCW-{YY}-{#####}",
+ "creation": "2025-10-06 09:07:32.088128",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_l5rl",
+  "wallet_name",
+  "amended_from",
+  "start_check_number",
+  "column_break_zonz",
+  "rental_contract",
+  "company",
+  "bank",
+  "section_break_jtbv",
+  "rental_cheque_wallet_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_l5rl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Cheque Wallet",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "wallet_name",
+   "fieldtype": "Data",
+   "label": "Wallet Name"
+  },
+  {
+   "fieldname": "column_break_zonz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rental_contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Rental Contract",
+   "options": "Rental Contract",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_jtbv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "rental_cheque_wallet_list",
+   "fieldtype": "Table",
+   "label": "Rental Cheque Wallet List",
+   "options": "Rental Cheque Wallet List"
+  },
+  {
+   "fieldname": "start_check_number",
+   "fieldtype": "Data",
+   "label": "Start Check Number",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank",
+   "fieldtype": "Link",
+   "label": "Bank",
+   "options": "Account"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-10-06 12:05:13.041228",
+ "modified_by": "Administrator",
+ "module": "Egy Rent",
+ "name": "Rental Cheque Wallet",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
