@@ -12,7 +12,9 @@
   "bank",
   "company",
   "contract_item_type",
-  "contract_item_name"
+  "contract_item_name",
+  "bank_location",
+  "description"
  ],
  "fields": [
   {
@@ -45,7 +47,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Bank",
-   "options": "Account"
+   "options": "Account",
+   "reqd": 1
   },
   {
    "fieldname": "contract_item_type",
@@ -59,13 +62,24 @@
    "in_list_view": 1,
    "label": "Contract Link",
    "options": "contract_item_type"
+  },
+  {
+   "fieldname": "bank_location",
+   "fieldtype": "Link",
+   "label": "Bank Location",
+   "options": "Bank"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-10-06 15:30:00.960459",
+ "modified": "2025-10-15 11:00:34.592791",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Cheque Wallet List",

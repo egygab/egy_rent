@@ -10,6 +10,7 @@
   "wallet_name",
   "amended_from",
   "start_check_number",
+  "bank_location",
   "column_break_zonz",
   "rental_contract",
   "company",
@@ -75,15 +76,27 @@
   {
    "fieldname": "bank",
    "fieldtype": "Link",
-   "label": "Bank",
-   "options": "Account"
+   "label": "Bank Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_location",
+   "fieldtype": "Link",
+   "label": "Bank Location",
+   "options": "Bank"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-10-06 12:05:13.041228",
+ "links": [
+  {
+   "link_doctype": "Cheque Master",
+   "link_fieldname": "rental_cheque_wallet"
+  }
+ ],
+ "modified": "2025-10-15 11:22:39.733406",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Cheque Wallet",
