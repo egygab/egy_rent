@@ -66,12 +66,14 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
     stores = frappe.db.get_all('Rental Integration Master')
     for store in stores:
         store_ = frappe.get_doc('Rental Integration Master', store.name)
-        print (store_.integration_type)
+        #print (store_.integration_type)
         ######################################################
         ################### foodics ##########################
         ######################################################
         if store_.integration_type == "foodics" :
             ################### foodics ##########################
+            print (store_.name)
+            print (store_.integration_type)
             url = "https://api.foodics.com/v5/orders?filter[business_date]=" + str(business_date) + "&filter[branch_id]=" + str(store_.branch_id)
             payload = {'charge_id': '9775780c-f713-453c-bf12-6c9245134c05'}
             headers = {
