@@ -10,7 +10,13 @@
   "integration_type",
   "branch_id",
   "token",
-  "amended_from"
+  "amended_from",
+  "db_host",
+  "db_port",
+  "db_name",
+  "db_username",
+  "db_password",
+  "sql_view"
  ],
  "fields": [
   {
@@ -27,15 +33,17 @@
    "fieldname": "integration_type",
    "fieldtype": "Select",
    "label": "Integration Type",
-   "options": "foodics\n-"
+   "options": "foodics\n-\nPostgreSQL"
   },
   {
+   "depends_on": "eval:doc.integration_type == \"foodics\";",
    "fieldname": "branch_id",
    "fieldtype": "Data",
    "label": "Branch ID",
    "permlevel": 1
   },
   {
+   "depends_on": "eval:doc.integration_type == \"foodics\"",
    "fieldname": "token",
    "fieldtype": "Text",
    "label": "Token",
@@ -50,12 +58,48 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.integration_type == \"PostgreSQL\";",
+   "fieldname": "db_host",
+   "fieldtype": "Data",
+   "label": "DB Host"
+  },
+  {
+   "depends_on": "eval:doc.integration_type == \"PostgreSQL\";",
+   "fieldname": "db_port",
+   "fieldtype": "Data",
+   "label": "DB Port"
+  },
+  {
+   "depends_on": "eval:doc.integration_type == \"PostgreSQL\";",
+   "fieldname": "db_name",
+   "fieldtype": "Data",
+   "label": "DB Name"
+  },
+  {
+   "depends_on": "eval:doc.integration_type == \"PostgreSQL\";",
+   "fieldname": "db_username",
+   "fieldtype": "Data",
+   "label": "DB Username"
+  },
+  {
+   "depends_on": "eval:doc.integration_type == \"PostgreSQL\";",
+   "fieldname": "db_password",
+   "fieldtype": "Password",
+   "label": "DB Password"
+  },
+  {
+   "depends_on": "eval:doc.integration_type == \"PostgreSQL\";",
+   "fieldname": "sql_view",
+   "fieldtype": "Small Text",
+   "label": "SQL View"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-06 08:55:38.435768",
+ "modified": "2025-11-03 15:24:02.509030",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Integration Master",
