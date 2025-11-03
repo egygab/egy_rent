@@ -72,7 +72,7 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
         ######################################################
         if store_.integration_type == "foodics" :
             ################### foodics ##########################
-            print (store_.name)
+            print (store_.name, ">>>" , store.name)
             print (store_.integration_type)
             url = "https://api.foodics.com/v5/orders?filter[business_date]=" + str(business_date) + "&filter[branch_id]=" + str(store_.branch_id)
             payload = {'charge_id': '9775780c-f713-453c-bf12-6c9245134c05'}
