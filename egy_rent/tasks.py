@@ -92,45 +92,45 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
                     _next_url = response.json().get('links').get('next')
                     if _next_url :
                         _next_url = response.json().get('links').get('next') + "&filter[business_date]="+ str(business_date) + "&filter[branch_id]=" + str(store_.branch_id)
-        if store_.integration_type == "PostgreSQL" :
+        # if store_.integration_type == "PostgreSQL" :
             
-            ##print (get_decrypted_password('Rental Integration Master',store.name,"db_password"))
-            try:
-            # Establish a connection to the PostgreSQL database
-                conn = psycopg2.connect(
-                    host= store_.db_host,          # Or your database host
-                    database= store_.db_name,  # Replace with your database name
-                    user= store_.db_username,      # Replace with your PostgreSQL username
-                    password= get_decrypted_password('Rental Integration Master',store.name,"db_password"), # Replace with your PostgreSQL password
-                    port= store_.db_port      # Optional: specify port if not default
-                )
-                cur = conn.cursor()
-                _sql = str( store_.sql_view ) + "'" + str(business_date) + "'"
-                print (_sql)
-                cur.execute( _sql )
-                invis = cur.fetchall()
-                for inv in invis:
-                    new_si = frappe.new_doc("Rental Integration Sales")
-                    new_si.store = store_.name
-                    new_si.external_id = str(store_.name) + "-" + str(inv[0])
-                    new_si.external_reference = str(inv[0])
-                    new_si.invoice_date = business_date
-                    new_si.net_amount = inv[2]
-                    new_si.invoice_amount = inv[3]
-                    new_si.external_type_name="Active"
-                    new_si.insert()
+        #     ##print (get_decrypted_password('Rental Integration Master',store.name,"db_password"))
+        #     try:
+        #     # Establish a connection to the PostgreSQL database
+        #         conn = psycopg2.connect(
+        #             host= store_.db_host,          # Or your database host
+        #             database= store_.db_name,  # Replace with your database name
+        #             user= store_.db_username,      # Replace with your PostgreSQL username
+        #             password= get_decrypted_password('Rental Integration Master',store.name,"db_password"), # Replace with your PostgreSQL password
+        #             port= store_.db_port      # Optional: specify port if not default
+        #         )
+        #         cur = conn.cursor()
+        #         _sql = str( store_.sql_view ) + "'" + str(business_date) + "'"
+        #         print (_sql)
+        #         cur.execute( _sql )
+        #         invis = cur.fetchall()
+        #         for inv in invis:
+        #             new_si = frappe.new_doc("Rental Integration Sales")
+        #             new_si.store = store_.name
+        #             new_si.external_id = str(store_.name) + "-" + str(inv[0])
+        #             new_si.external_reference = str(inv[0])
+        #             new_si.invoice_date = business_date
+        #             new_si.net_amount = inv[2]
+        #             new_si.invoice_amount = inv[3]
+        #             new_si.external_type_name="Active"
+        #             new_si.insert()
                 
-                frappe.db.commit()
+        #         frappe.db.commit()
                 
-            except psycopg2.Error as e:
-                print(f"Error connecting to PostgreSQL: {e}")
-            finally:
-                # Close the cursor and connection
-                if cur:
-                    cur.close()
-                if conn:
-                    conn.close()
-                print("Database connection closed.")                
+        #     except psycopg2.Error as e:
+        #         print(f"Error connecting to PostgreSQL: {e}")
+        #     finally:
+        #         # Close the cursor and connection
+        #         if cur:
+        #             cur.close()
+        #         if conn:
+        #             conn.close()
+        #         print("Database connection closed.")                
 
     print ("=============== >> " + str(business_date))
             #print(response.json())
