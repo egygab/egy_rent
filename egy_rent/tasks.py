@@ -13,7 +13,7 @@ def foodics_response(endpoint,data={},headers={}):
 
 def save_foodics_invoices(response,store_name,data={},headers={}):
     store_date = response.json().get('data')
-    print (store_date)
+    print (store_name)
     for date_item in store_date:
         #print (date_item['id'])
         new_si = frappe.new_doc("Rental Integration Sales")
@@ -65,7 +65,7 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
     stores = frappe.db.get_all('Rental Integration Master')
     for store in stores:
         store_ = frappe.get_doc('Rental Integration Master', store.name)
-        #print (store_.token)
+        print (store_.integration_type)
         ######################################################
         ################### foodics ##########################
         ######################################################
