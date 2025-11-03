@@ -54,9 +54,10 @@ def save_foodics_invoices(response,store_name,data={},headers={}):
         #new_si.insert()
         try:
             new_si.insert()
+            frappe.db.commit()
         except:
             pass
-    frappe.db.commit()
+    
 ##bench --site site1.local execute egy_rent.tasks.pull_integration_invoices
 ##bench --site system.egygab.com execute egy_rent.tasks.pull_integration_invoices
 @frappe.whitelist()
@@ -118,7 +119,8 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
                     new_si.invoice_amount = inv[3]
                     new_si.external_type_name="Active"
                     new_si.insert()
-                    frappe.db.commit()
+                
+                frappe.db.commit()
                 
             except psycopg2.Error as e:
                 print(f"Error connecting to PostgreSQL: {e}")
