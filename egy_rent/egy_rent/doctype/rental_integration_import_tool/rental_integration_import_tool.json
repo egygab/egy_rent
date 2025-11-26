@@ -6,6 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "business_date",
+  "store",
   "btn_import"
  ],
  "fields": [
@@ -18,13 +19,19 @@
    "fieldname": "business_date",
    "fieldtype": "Date",
    "label": "Business Date"
+  },
+  {
+   "fieldname": "store",
+   "fieldtype": "Link",
+   "label": "Store",
+   "options": "Rental Integration Master"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-07-01 14:56:05.139722",
+ "modified": "2025-11-26 11:53:22.496751",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Integration Import Tool",

@@ -13,6 +13,7 @@ def foodics_response(endpoint,data={},headers={}):
 
 def save_foodics_invoices(response,store_name,data={},headers={}):
     store_date = response.json().get('data')
+    print (store_date)
     
     for date_item in store_date:
         #print ("save_foodics_invoices >>" , store_name)
@@ -64,9 +65,14 @@ def save_foodics_invoices(response,store_name,data={},headers={}):
 ##bench --site site1.local execute egy_rent.tasks.pull_integration_invoices
 ##bench --site system.egygab.com execute egy_rent.tasks.pull_integration_invoices
 @frappe.whitelist()
-def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
-    
-    stores = frappe.db.get_all('Rental Integration Master')
+def pull_integration_invoices(business_date = date.today() - timedelta(days=1),store_code=None):
+    #store_code=1
+    print (str(store_code))
+    if store_code:
+        stores = frappe.db.get_all('Rental Integration Master',filters={'name': store_code ,'dont_import_data': False})
+    else:
+        stores = frappe.db.get_all('Rental Integration Master',filters={'dont_import_data': False })
+
     for store in stores:
         store_ = frappe.get_doc('Rental Integration Master', store.name)
         #print (store_.integration_type)
@@ -85,10 +91,14 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
                         'Content-Type': 'application/json'
                         }
             response = foodics_response(url, headers=headers, data=payload)
+            #print (str(response))
             save_foodics_invoices(response,store.name, headers=headers, data=payload)
             #print (response.json().get('links'))
             if response.json().get('links') :
-                _next_url=response.json().get('links').get('next') + "&filter[business_date]="+ str(business_date) + "&filter[branch_id]=" + str(store_.branch_id)
+                try:
+                    _next_url=response.json().get('links').get('next') + "&filter[business_date]="+ str(business_date) + "&filter[branch_id]=" + str(store_.branch_id)
+                except:
+                    _next_url = None
                 while _next_url :
                     #print (_next_url)
                     time.sleep(2)  # Pause for 2 seconds
@@ -100,7 +110,7 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
 
         if store_.integration_type == "PostgreSQL" :
             
-            ##print (get_decrypted_password('Rental Integration Master',store.name,"db_password"))
+            print (get_decrypted_password('Rental Integration Master',store.name,"db_password"))
             try:
             # Establish a connection to the PostgreSQL database
                 conn = psycopg2.connect(
@@ -131,6 +141,8 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1)):
                         time.sleep(1)  # Pause for seconds
                     except:
                         pass
+
+                    frappe.db.commit()
 
                 frappe.db.commit()
                 

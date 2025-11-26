@@ -16,7 +16,8 @@
   "db_name",
   "db_username",
   "db_password",
-  "sql_view"
+  "sql_view",
+  "dont_import_data"
  ],
  "fields": [
   {
@@ -94,12 +95,18 @@
    "fieldname": "sql_view",
    "fieldtype": "Small Text",
    "label": "SQL View"
+  },
+  {
+   "default": "0",
+   "fieldname": "dont_import_data",
+   "fieldtype": "Check",
+   "label": "Don't Import Data"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-03 15:24:02.509030",
+ "modified": "2025-11-26 11:36:06.695675",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Integration Master",
