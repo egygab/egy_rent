@@ -4,6 +4,8 @@ import json
 import time
 from datetime import date, timedelta
 from frappe.utils.password import get_decrypted_password
+from frappe.utils import add_to_date, now_datetime
+
 
 import psycopg2
 
@@ -91,7 +93,7 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1),s
                         'Content-Type': 'application/json'
                         }
             response = foodics_response(url, headers=headers, data=payload)
-            #print (str(response))
+            print (str(response.json()))
             save_foodics_invoices(response,store.name, headers=headers, data=payload)
             #print (response.json().get('links'))
             if response.json().get('links') :
@@ -163,3 +165,15 @@ def pull_integration_invoices(business_date = date.today() - timedelta(days=1),s
 
 
             #print(store_.store_name)
+
+@frappe.whitelist()
+def pull_integration_invoices_dates(start_date=date.today() - timedelta(days=2),end_date=date.today() - timedelta(days=1),store_code=None):
+    #delta = timedelta(days=1)
+    current_date = start_date
+    while current_date <= end_date:
+        print(current_date)
+        #queue='short'
+        frappe.enqueue('egy_rent.tasks.pull_integration_invoices', queue='default', business_date=current_date, store_code=store_code)
+        #current_date += delta
+        current_date = frappe.utils.add_to_date(current_date, days=1) 
+    

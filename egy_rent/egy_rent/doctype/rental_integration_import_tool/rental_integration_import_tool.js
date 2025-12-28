@@ -11,8 +11,8 @@ frappe.ui.form.on("Rental Integration Import Tool", "btn_import", function(frm) 
 
     //frappe.msgprint(frm.doc.store)
        frappe.call({
-                method: 'egy_rent.tasks.pull_integration_invoices',
-                args: {business_date: frm.doc.business_date,store_code: frm.doc.store},
+                method: 'egy_rent.tasks.pull_integration_invoices_dates',
+                args: {start_date: frm.doc.business_date,end_date: frm.doc.end_business_date,store_code: frm.doc.store},
                 callback: function(ret) {
                     // If you expect something to return form the call use the code bellow or replace it with your own code
                     if (!ret || ret.message == null) return;
@@ -21,5 +21,5 @@ frappe.ui.form.on("Rental Integration Import Tool", "btn_import", function(frm) 
                 }
             }); 
 
-        frappe.msgprint("We stared importing the data!")
+        frappe.msgprint("We stared importing the data!, Please check RQ Jobs")
 });
