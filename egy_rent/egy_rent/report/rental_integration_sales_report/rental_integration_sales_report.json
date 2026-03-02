@@ -8,30 +8,32 @@
  "doctype": "Report",
  "filters": [
   {
+   "default": "",
    "fieldname": "from_date",
    "fieldtype": "Date",
    "label": "From Date",
-   "mandatory": 1,
+   "mandatory": 0,
    "wildcard_filter": 0
   },
   {
+   "default": "",
    "fieldname": "to_date",
    "fieldtype": "Date",
    "label": "To Date",
-   "mandatory": 1,
+   "mandatory": 0,
    "wildcard_filter": 0
   }
  ],
  "idx": 0,
  "is_standard": "Yes",
- "letterhead": null,
- "modified": "2025-07-01 15:19:30.634831",
+ "letter_head": null,
+ "modified": "2026-03-02 12:39:29.785741",
  "modified_by": "Administrator",
  "module": "Egy Rent",
  "name": "Rental Integration Sales Report",
  "owner": "Administrator",
  "prepared_report": 0,
- "query": "select m.store_name as Store,t.external_type_name as Invoice_Type,\nMONTHNAME(t.invoice_date) as Month, YEAR(t.invoice_date) as Year,sum(invoice_amount) as \"Amount:Float:140\" , sum(net_amount) as \"Net_Amount:Float:140\" \nfrom `tabRental Integration Sales` t\nINNER JOIN `tabRental Integration Master` m  ON t.store=m.name\nwhere t.invoice_date between %(from_date)s and %(to_date)s\ngroup by m.store_name,t.external_type_name,YEAR(t.invoice_date), MONTH(t.invoice_date)\n",
+ "query": "select m.store_name as Store,t.external_type_name as Invoice_Type,\r\nMONTHNAME(t.invoice_date) as Month, YEAR(t.invoice_date) as Year,sum(invoice_amount) as \"Amount:Float:140\" , sum(net_amount) as \"Net_Amount:Float:140\" \r\nfrom `tabRental Integration Sales` t\r\nINNER JOIN `tabRental Integration Master` m  ON t.store=m.name\r\nwhere \r\nt.invoice_date between %(from_date)s and %(to_date)s\r\n\r\ngroup by m.store_name,t.external_type_name,YEAR(t.invoice_date), MONTH(t.invoice_date)",
  "ref_doctype": "Rental Integration Sales",
  "report_name": "Rental Integration Sales Report",
  "report_type": "Query Report",
