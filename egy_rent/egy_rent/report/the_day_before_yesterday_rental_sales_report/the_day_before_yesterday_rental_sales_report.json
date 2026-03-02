@@ -1,0 +1,38 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-03-02 14:05:19.395475",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-03-02 14:05:19.395475",
+ "modified_by": "Administrator",
+ "module": "Egy Rent",
+ "name": "The day before yesterday Rental Sales Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select \r\n    m.store_name as Store,\r\n    t.external_type_name as Invoice_Type,\r\n    MONTHNAME(t.invoice_date) as Month, \r\n    YEAR(t.invoice_date) as Year,\r\n    sum(invoice_amount) as \"Amount:Float:140\", \r\n    sum(net_amount) as \"Net_Amount:Float:140\" \r\nfrom `tabRental Integration Sales` t\r\nINNER JOIN `tabRental Integration Master` m ON t.store = m.name\r\nwhere \r\n    t.invoice_date = DATE_SUB(CURDATE(), INTERVAL 2 DAY)\r\ngroup by \r\n    m.store_name, \r\n    t.external_type_name, \r\n    YEAR(t.invoice_date), \r\n    MONTH(t.invoice_date)",
+ "ref_doctype": "Rental Integration Sales",
+ "report_name": "The day before yesterday Rental Sales Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Rental Integration User"
+  },
+  {
+   "role": "Rental Integration Manager"
+  },
+  {
+   "role": "Rental Integration Loader"
+  }
+ ],
+ "timeout": 0
+}
